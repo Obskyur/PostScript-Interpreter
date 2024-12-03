@@ -18,6 +18,11 @@ class Parser:
                 return (True, float_value)
         except ValueError:
             return False
+    
+    @staticmethod
+    def _string(value):
+        if value.startswith('(') and value.endswith(')'):
+            return (True, value[1:-1])
 
     @staticmethod
     def _code_block(value):
@@ -33,6 +38,7 @@ class Parser:
     def _constants(input):
         res = Parser._bool(input)
         res = res or Parser._number(input)
+        res = res or Parser._string(input)
         res = res or Parser._code_block(input)
         res = res or Parser._name_constant(input)
         return res
@@ -47,6 +53,7 @@ class Parser:
 
     @staticmethod
     def _lookup_in_dictionary(input, operand_stack, dictionary_stack):
+        found_dict = None
         # search in the dictionary stack for the input, starting from the top
         for d in reversed(dictionary_stack.items):
             if input in d:
