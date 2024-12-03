@@ -1,4 +1,5 @@
 from Stacks import dictionary_stack, operand_stack
+from Colors import RESET, RED
 from LimitedDict import LimitedDict
 
 class DictionaryOps:
@@ -7,7 +8,7 @@ class DictionaryOps:
         if operand_stack.size() >= 1:
             operand_stack.push(LimitedDict(operand_stack.pop()))
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def length():
@@ -16,9 +17,9 @@ class DictionaryOps:
             if isinstance(dictionary, LimitedDict):
                 operand_stack.push(len(dictionary.dict))
             else:
-                print(" not a dictionary")
+                print(RED + " not a dictionary" + RESET)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def maxlength():
@@ -27,9 +28,9 @@ class DictionaryOps:
             if isinstance(dictionary, LimitedDict):
                 operand_stack.push(dictionary.max_size)
             else:
-                print(" not a dictionary")
+                print(RED + " not a dictionary" + RESET)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def begin():
@@ -40,7 +41,7 @@ class DictionaryOps:
         if dictionary_stack.size() > 1:
             dictionary_stack.pop()
         else:
-            print("dictionary stack cannot be empty")
+            print(RED + " dictionary stack cannot be empty" + RESET)
     
     @staticmethod
     def _def():
@@ -55,7 +56,7 @@ class DictionaryOps:
                 operand_stack.push(name)
                 operand_stack.push(value)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
 dictionary_stack.peek()["dict"] = DictionaryOps.dict
 dictionary_stack.peek()["length"] = DictionaryOps.length

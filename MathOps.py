@@ -1,4 +1,5 @@
 from Stacks import dictionary_stack, operand_stack
+from Colors import RESET, RED
 import math
 
 class Math:
@@ -13,7 +14,7 @@ class Math:
             res = op1 + op2
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def sub():
@@ -23,7 +24,7 @@ class Math:
             res = op1 - op2
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def mul():
@@ -33,7 +34,7 @@ class Math:
             res = op1 * op2
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def div():
@@ -43,7 +44,7 @@ class Math:
             res = op1 / op2
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def idiv():
@@ -53,7 +54,7 @@ class Math:
             res = op1 // op2
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def mod():
@@ -63,7 +64,7 @@ class Math:
             res = op1 % op2
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def abs():
@@ -72,7 +73,7 @@ class Math:
             res = abs(op)
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def neg():
@@ -81,7 +82,7 @@ class Math:
             res = -op
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def ceiling():
@@ -90,7 +91,7 @@ class Math:
             res = math.ceil(op)
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def floor():
@@ -99,7 +100,7 @@ class Math:
             res = math.floor(op)
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def round():
@@ -108,7 +109,7 @@ class Math:
             res = round(op)
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def sqrt():
@@ -117,7 +118,7 @@ class Math:
             res = math.sqrt(op)
             operand_stack.push(res)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
 dictionary_stack.peek()["add"] = Math.add
 dictionary_stack.peek()["sub"] = Math.sub

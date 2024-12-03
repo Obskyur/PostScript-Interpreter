@@ -1,3 +1,5 @@
+from Colors import RESET, RED
+
 class Parser:
     @staticmethod
     def _bool(value):
@@ -69,4 +71,4 @@ class Parser:
             else:
                 operand_stack.push(value)
         else:
-            print(" not in dictionary ") #TODO: : implement lexical scoping
+            print(RED + " not in dictionary " + RESET) #TODO: : implement lexical scoping

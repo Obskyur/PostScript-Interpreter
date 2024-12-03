@@ -1,3 +1,5 @@
+from Colors import RESET, RED
+
 class Stack:
     def __init__(self):
         self.items = []
@@ -34,14 +36,14 @@ class Stack:
             operand_stack.push(op1)
             operand_stack.push(op2)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
 
     @staticmethod
     def _pop():
         if operand_stack.size() >= 1:
             operand_stack.pop()
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def _copy():
@@ -49,7 +51,7 @@ class Stack:
             op1 = operand_stack.peek()
             operand_stack.push(op1)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def _dup():
@@ -57,7 +59,7 @@ class Stack:
             op1 = operand_stack.peek()
             operand_stack.push(op1)
         else:
-            print(" not enough operands")
+            print(RED + " not enough operands" + RESET)
     
     @staticmethod
     def _clear():
