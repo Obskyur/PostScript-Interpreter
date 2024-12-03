@@ -2,6 +2,14 @@ from Colors import RESET, RED
 
 class Parser:
     @staticmethod
+    def input(input, operand_stack, dictionary_stack):
+        result = Parser._constants(input)
+        if result:
+            operand_stack.push(result[1])
+        else:
+            Parser._lookup_in_dictionary(input, operand_stack, dictionary_stack)
+    
+    @staticmethod
     def _bool(value):
         if value == "true":
             return (True, True)
@@ -44,14 +52,6 @@ class Parser:
         res = res or Parser._code_block(input)
         res = res or Parser._name_constant(input)
         return res
-
-    @staticmethod
-    def input(input, operand_stack, dictionary_stack):
-        result = Parser._constants(input)
-        if result:
-            operand_stack.push(result[1])
-        else:
-            Parser._lookup_in_dictionary(input, operand_stack, dictionary_stack)
 
     @staticmethod
     def _lookup_in_dictionary(input, operand_stack, dictionary_stack):

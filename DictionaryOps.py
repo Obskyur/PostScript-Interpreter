@@ -4,14 +4,14 @@ from LimitedDict import LimitedDict
 
 class DictionaryOps:
     @staticmethod
-    def dict():
+    def _dict():
         if operand_stack.size() >= 1:
             operand_stack.push(LimitedDict(operand_stack.pop()))
         else:
             print(RED + " not enough operands" + RESET)
     
     @staticmethod
-    def length():
+    def _length():
         if operand_stack.size() >= 1:
             dictionary = operand_stack.peek()
             if isinstance(dictionary, LimitedDict):
@@ -22,7 +22,7 @@ class DictionaryOps:
             print(RED + " not enough operands" + RESET)
     
     @staticmethod
-    def maxlength():
+    def _maxlength():
         if operand_stack.size() >= 1:
             dictionary = operand_stack.peek()
             if isinstance(dictionary, LimitedDict):
@@ -33,11 +33,11 @@ class DictionaryOps:
             print(RED + " not enough operands" + RESET)
     
     @staticmethod
-    def begin():
+    def _begin():
         dictionary_stack.push(operand_stack.pop())
     
     @staticmethod
-    def end():
+    def _end():
         if dictionary_stack.size() > 1:
             dictionary_stack.pop()
         else:
@@ -58,9 +58,9 @@ class DictionaryOps:
         else:
             print(RED + " not enough operands" + RESET)
 
-dictionary_stack.peek()["dict"] = DictionaryOps.dict
-dictionary_stack.peek()["length"] = DictionaryOps.length
-dictionary_stack.peek()["maxlength"] = DictionaryOps.maxlength
-dictionary_stack.peek()["begin"] = DictionaryOps.begin
-dictionary_stack.peek()["end"] = DictionaryOps.end
+dictionary_stack.peek()["dict"] = DictionaryOps._dict
+dictionary_stack.peek()["length"] = DictionaryOps._length
+dictionary_stack.peek()["maxlength"] = DictionaryOps._maxlength
+dictionary_stack.peek()["begin"] = DictionaryOps._begin
+dictionary_stack.peek()["end"] = DictionaryOps._end
 dictionary_stack.peek()["def"] = DictionaryOps._def

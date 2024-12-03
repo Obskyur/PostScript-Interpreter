@@ -4,6 +4,8 @@ from Parser import Parser as Parse
 import MathOps
 import DictionaryOps
 import StringOps
+import BoolOps
+import BinOps
 
 def repl():
     while True:

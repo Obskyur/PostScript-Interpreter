@@ -3,7 +3,7 @@ from Colors import RESET, RED
 
 class StringOps:
     @staticmethod
-    def length():
+    def _length():
         if operand_stack.size() >= 1:
             string = operand_stack.pop()
             res = len(string)
@@ -12,7 +12,7 @@ class StringOps:
             print(RED + " not enough operands" + RESET)
     
     @staticmethod
-    def get():
+    def _get():
         if operand_stack.size() >= 2:
             index = operand_stack.pop()
             string = operand_stack.pop()
@@ -22,7 +22,7 @@ class StringOps:
             print(RED + " not enough operands" + RESET)
     
     @staticmethod
-    def getinterval():
+    def _getinterval():
         if operand_stack.size() >= 3:
             count = operand_stack.pop()
             index = operand_stack.pop()
@@ -33,7 +33,7 @@ class StringOps:
             print(RED + " not enough operands" + RESET)
     
     @staticmethod
-    def putinterval():
+    def _putinterval():
         if operand_stack.size() >= 3:
             string2 = operand_stack.pop()
             index = operand_stack.pop()
@@ -43,7 +43,7 @@ class StringOps:
         else:
             print(RED + " not enough operands" + RESET)
 
-dictionary_stack.peek()["length"] = StringOps.length
-dictionary_stack.peek()["get"] = StringOps.get
-dictionary_stack.peek()["getinterval"] = StringOps.getinterval
-dictionary_stack.peek()["putinterval"] = StringOps.putinterval
+dictionary_stack.peek()["length"] = StringOps._length
+dictionary_stack.peek()["get"] = StringOps._get
+dictionary_stack.peek()["getinterval"] = StringOps._getinterval
+dictionary_stack.peek()["putinterval"] = StringOps._putinterval
