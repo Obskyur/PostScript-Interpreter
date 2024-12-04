@@ -1,10 +1,10 @@
-from Stacks import dictionary_stack, operand_stack
 from Colors import RESET, RED
 from LimitedDict import LimitedDict
 
 class DictionaryOps:
     @staticmethod
     def _dict():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 1:
             operand_stack.push(LimitedDict(operand_stack.pop()))
         else:
@@ -12,6 +12,7 @@ class DictionaryOps:
     
     @staticmethod
     def _length():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 1:
             dictionary = operand_stack.peek()
             if isinstance(dictionary, LimitedDict):
@@ -23,6 +24,7 @@ class DictionaryOps:
     
     @staticmethod
     def _maxlength():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 1:
             dictionary = operand_stack.peek()
             if isinstance(dictionary, LimitedDict):
@@ -34,10 +36,12 @@ class DictionaryOps:
     
     @staticmethod
     def _begin():
+        from PostScriptInterpreter import operand_stack, dictionary_stack
         dictionary_stack.push(operand_stack.pop())
     
     @staticmethod
     def _end():
+        from PostScriptInterpreter import dictionary_stack
         if dictionary_stack.size() > 1:
             dictionary_stack.pop()
         else:
@@ -45,6 +49,7 @@ class DictionaryOps:
     
     @staticmethod
     def _def():
+        from PostScriptInterpreter import operand_stack, dictionary_stack
         if operand_stack.size() >=2:
             value = operand_stack.pop()
             name = operand_stack.pop()
@@ -57,10 +62,3 @@ class DictionaryOps:
                 operand_stack.push(value)
         else:
             print(RED + " not enough operands" + RESET)
-
-dictionary_stack.peek()["dict"] = DictionaryOps._dict
-dictionary_stack.peek()["length"] = DictionaryOps._length
-dictionary_stack.peek()["maxlength"] = DictionaryOps._maxlength
-dictionary_stack.peek()["begin"] = DictionaryOps._begin
-dictionary_stack.peek()["end"] = DictionaryOps._end
-dictionary_stack.peek()["def"] = DictionaryOps._def

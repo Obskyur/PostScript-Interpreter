@@ -1,9 +1,9 @@
-from Stacks import operand_stack, dictionary_stack
 from Colors import RESET, RED
 
 class BoolOps:
     @staticmethod
     def eq():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 2:
             b = operand_stack.pop()
             a = operand_stack.pop()
@@ -14,6 +14,7 @@ class BoolOps:
     
     @staticmethod
     def ne():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 2:
             b = operand_stack.pop()
             a = operand_stack.pop()
@@ -24,6 +25,7 @@ class BoolOps:
     
     @staticmethod
     def ge():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 2:
             b = operand_stack.pop()
             a = operand_stack.pop()
@@ -34,6 +36,7 @@ class BoolOps:
     
     @staticmethod
     def gt():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 2:
             b = operand_stack.pop()
             a = operand_stack.pop()
@@ -44,6 +47,7 @@ class BoolOps:
     
     @staticmethod
     def le():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 2:
             b = operand_stack.pop()
             a = operand_stack.pop()
@@ -54,6 +58,7 @@ class BoolOps:
     
     @staticmethod
     def lt():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 2:
             b = operand_stack.pop()
             a = operand_stack.pop()
@@ -63,18 +68,12 @@ class BoolOps:
             print(RED + " not enough operands" + RESET)
     
     @staticmethod
-    def my_true():
+    def true_op():
+        from PostScriptInterpreter import operand_stack
         operand_stack.push(True)
     
     @staticmethod
-    def my_false():
+    def false_op():
+        from PostScriptInterpreter import operand_stack
         operand_stack.push(False)
     
-dictionary_stack.peek()["eq"] = BoolOps.eq
-dictionary_stack.peek()["ne"] = BoolOps.ne
-dictionary_stack.peek()["ge"] = BoolOps.ge
-dictionary_stack.peek()["gt"] = BoolOps.gt
-dictionary_stack.peek()["le"] = BoolOps.le
-dictionary_stack.peek()["lt"] = BoolOps.lt
-dictionary_stack.peek()["true"] = BoolOps.my_true
-dictionary_stack.peek()["false"] = BoolOps.my_false

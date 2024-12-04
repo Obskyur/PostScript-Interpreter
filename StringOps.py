@@ -1,9 +1,9 @@
-from Stacks import operand_stack, dictionary_stack
 from Colors import RESET, RED
 
 class StringOps:
     @staticmethod
     def _length():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 1:
             string = operand_stack.pop()
             res = len(string)
@@ -13,6 +13,7 @@ class StringOps:
     
     @staticmethod
     def _get():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 2:
             index = operand_stack.pop()
             string = operand_stack.pop()
@@ -23,6 +24,7 @@ class StringOps:
     
     @staticmethod
     def _getinterval():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 3:
             count = operand_stack.pop()
             index = operand_stack.pop()
@@ -34,6 +36,7 @@ class StringOps:
     
     @staticmethod
     def _putinterval():
+        from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 3:
             string2 = operand_stack.pop()
             index = operand_stack.pop()
@@ -42,8 +45,3 @@ class StringOps:
             operand_stack.push(res)
         else:
             print(RED + " not enough operands" + RESET)
-
-dictionary_stack.peek()["length"] = StringOps._length
-dictionary_stack.peek()["get"] = StringOps._get
-dictionary_stack.peek()["getinterval"] = StringOps._getinterval
-dictionary_stack.peek()["putinterval"] = StringOps._putinterval
