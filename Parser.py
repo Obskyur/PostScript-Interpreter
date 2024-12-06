@@ -7,7 +7,7 @@ class Parser:
         if result:
             operand_stack.push(result[1])
         else:
-            Parser._lookup_in_dictionary(input, operand_stack, dictionary_stack)
+            Parser.lookup_in_dictionary(input, operand_stack, dictionary_stack)
     
     @staticmethod
     def _bool(value):
@@ -54,7 +54,7 @@ class Parser:
         return res
 
     @staticmethod
-    def _lookup_in_dictionary(input, operand_stack, dictionary_stack):
+    def lookup_in_dictionary(input, operand_stack, dictionary_stack):
         found_dict = None
         # search in the dictionary stack for the input, starting from the top
         for d in reversed(dictionary_stack.items):

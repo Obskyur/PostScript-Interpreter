@@ -6,6 +6,7 @@ from StringOps import StringOps
 from BoolOps import BoolOps
 from BinOps import BinOps
 from FlowControlOps import FlowControlOps
+from IO_Ops import IO_Ops
 
 # Create application stacks
 dictionary_stack = Stack()
@@ -68,3 +69,8 @@ dictionary_stack.peek()["ceiling"] = MathOps.ceiling
 dictionary_stack.peek()["floor"] = MathOps.floor
 dictionary_stack.peek()["round"] = MathOps.round
 dictionary_stack.peek()["sqrt"] = MathOps.sqrt
+
+# Add IO_Ops to the dictionary
+dictionary_stack.peek()["print"] = IO_Ops.print
+dictionary_stack.peek()["=="] = IO_Ops.eqeq_op
+dictionary_stack.peek()["="] = IO_Ops.eq_op
