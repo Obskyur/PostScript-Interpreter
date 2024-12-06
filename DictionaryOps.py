@@ -14,9 +14,11 @@ class DictionaryOps:
     def _length():
         from PostScriptInterpreter import operand_stack
         if operand_stack.size() >= 1:
-            dictionary = operand_stack.peek()
-            if isinstance(dictionary, LimitedDict):
-                operand_stack.push(len(dictionary.dict))
+            item = operand_stack.peek()
+            if isinstance(item, LimitedDict):
+                operand_stack.push(len(item.dict))
+            elif isinstance(item, str):
+                operand_stack.push(len(item))
             else:
                 print(RED + " not a dictionary" + RESET)
         else:
