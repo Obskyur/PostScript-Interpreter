@@ -72,7 +72,7 @@
 <div align="center"><h2 id="start">
 💨 Running the Project
 </h2></div>
-Open this project in your favorite code editor, and simply run Main.py. All commands should be given in the terminal, and the appropriate outputs will be printed until 'quit' is given as an input.
+Open this project in your favorite code editor or terminal, and simply run Main.py. All commands should be given in the terminal, and the appropriate outputs will be printed until 'quit' is given as an input.
 
 
 <!-- Owner Info -->
